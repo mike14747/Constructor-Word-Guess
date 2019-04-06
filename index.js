@@ -18,7 +18,6 @@ function prepGame() {
     randomNum = Math.floor(Math.random() * 20);
     selectedWord = wordsArray[randomNum];
     newWord.fillLetterArray(selectedWord);
-    console.log(selectedWord);
     newWord.wordString();
 }
 
