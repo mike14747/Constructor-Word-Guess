@@ -1,6 +1,7 @@
 "use strict";
 
 var inquirer = require("inquirer");
+
 var Word = require("./word.js");
 var newWord = new Word();
 
@@ -33,11 +34,16 @@ function playGame() {
             }
         }
     ]).then(function (answer) {
-        remaining--;
         console.log("\nYou guessed: " + answer.letterGuess + "\n");
-        console.log("Guesses remaining: " + remaining + "\n");
         newWord.callLetterTest(answer.letterGuess);
         newWord.wordString();
+        if (regEx) {
+            console.log("\nCorrect!\n");
+        } else {
+            console.log("\nIncorrect!\n");
+            remaining--;
+            console.log("Guesses remaining: " + remaining + "\n");
+        }
         if (remaining > 0) {
             playGame();
         } else {
