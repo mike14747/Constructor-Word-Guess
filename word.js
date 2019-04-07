@@ -11,7 +11,7 @@ var Word = function () {
         this.letterArray.forEach(function (element) {
             stringWord += element.guessTest(element.char);
         });
-        console.log("\n" + stringWord + "\n");
+        console.log("\n" + stringWord);
     };
     this.callLetterTest = function (letter) {
         var success = false;
