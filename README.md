@@ -1,6 +1,8 @@
 # Constructor-Word-Guess
 
-* This game using the npm inquirer package to prompt for and validate user inputs.
+* This game is a command line 'Wheel of Fortune' type game that uses nodeJS.
+
+* It uses the npm inquirer package to prompt for and validate user inputs.
 
 * There are three files associated with this game:
 
@@ -17,14 +19,14 @@
     * when the user enters a character or characters, inquirer validates it in 2 ways
       * first (via a regular expression match), it determines whether a single letter has been submitted. If not, it prompts the user to enter a single letter
       * if the first test passes, it determines whether the letter has already been guessed (whether successfully or not) by checking to see if it's already in the 'selectedArray' array
-    * if both of the above tests pass, the letter guessed is added to the 'selectedArray' array and the 'callLetterTest' method is called using the user input passed as an argument to determine if the letter guessed is correct or not
+    * if both of the above tests pass, the letter guessed is added to the 'selectedArray' array and the 'callLetterTest' method is called using the user input passed as an argument to determine if the letter guessed is correct or not. It uses the letterTest() method to do this against every letter in the 'letterArray' array. Letters determined to be correctly guessed will have their 'guessed' property set to true.
     * a Correct or Incorrect message is displayed. If the guess is incorrect, the guesses remaining counter is decremented and that number is displayed to the user.
-    * the updated word is re-displayed with correctly guessed letters revealed as they are guessed
+    * the updated word is re-displayed with correctly guessed letters revealed as they are guessed. This is done using the wordString() method.
     * after each valid letter guess, the testWon() method is called to see if the word is completely solved
     * if the remaining counter is still greater than 0, the playGame() function is recursively called
     * all the above steps are repeated successively until either testWon() determines the puzzle is totally solved or the guesses remaining counter hits 0. In both cases the endGame() function is called... with an argument of either "Won" or "Lost"
-    * 
-
+    * endGame() displays a won or lost message and shows the fully solved word or phrase
+    * it then prompts the user to play again. Selecting 'No' will terminate game. Selecting 'Yes' will re-run prepGame() and start the whole process over.
 
 * word.js
   * contains a Word constructor function (which is used to create an object representation of the current word) with the following elements and methods:
